@@ -28,7 +28,7 @@ It means the account cookie is expired, try log into the account manually and up
     1. Reset by roblox after few month not using.
     2. Not using the "Safe Logout" instead of click on logout button can cause cookie reset.
 
-#### Instructions:
+## Instructions:
 1. Open a game page
 2. Menu
     - White Button (Next to the green play button) will lets you play with random account you saved
