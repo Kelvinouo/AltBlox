@@ -18,37 +18,6 @@ function waitForElm(selector) {
     });
 };
 
-let descriptionCope = $(".remove-panel.btr-description")
-$(".col-xs-12.btr-game-main-container.section-content").addClass("rbx-tabs-horizontal")
-$(".col-xs-12.btr-game-main-container.section-content").after(`
-<div class="col-xs-12 btr-game-main-container section-content rbx-tabs-horizontal">
-    <div class="btr-description">
-        <div style="padding-bottom: 15px;">
-            <p id="AltsTopNote" style="padding-bottom: 10px; font-size: 5px;">Note: make sure to login before save/update the account/s</p>
-            <div style="display: flex; gap: 5px;">
-                <button id="saveNow" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Save This Account</button>
-                <button id="importCookie" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Import From Cookie/s</button>
-                <button id="importRbxManager" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Import From Rbx Account Manager</button>
-                <div style="display: flex; margin-left: auto; gap: 5px;">
-                    <button id="safelogout" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Safe Logout</button>
-                </div>
-            </div>
-        </div>
-        <div id="AltsDisplay" style="overflow-y: auto;height: 265px;">
-
-        </div>
-    </div>
-</div>
-
-<div class="col-xs-12 btr-game-main-container section-content">
-    <div class="remove-panel btr-description">
-        ${descriptionCope.html()}
-    </div>
-</div>
-`);
-
-descriptionCope.remove();
-
 function notification(message) {
     $("#NotificationShit")?.remove()
     $("#rbx-body").append(`
@@ -85,6 +54,41 @@ function notification(message) {
 }
 
 (async () => {
+    let descriptionCope = $(".remove-panel.btr-description")
+    if (descriptionCope.length < 1) {
+        notification("Please install <a class='text-name' herf='https://chrome.google.com/webstore/detail/btroblox-making-roblox-be/hbkpclpemjeibhioopcebchdmohaieln'>BTRoblox</a> before using AltBlox!")
+        return
+    }
+    $(".col-xs-12.btr-game-main-container.section-content").addClass("rbx-tabs-horizontal")
+    $(".col-xs-12.btr-game-main-container.section-content").after(`
+    <div class="col-xs-12 btr-game-main-container section-content rbx-tabs-horizontal">
+        <div class="btr-description">
+            <div style="padding-bottom: 15px;">
+                <p id="AltsTopNote" style="padding-bottom: 10px; font-size: 5px;">Note: make sure to login before save/update the account/s</p>
+                <div style="display: flex; gap: 5px;">
+                    <button id="saveNow" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Save This Account</button>
+                    <button id="importCookie" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Import From Cookie/s</button>
+                    <button id="importRbxManager" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Import From Rbx Account Manager</button>
+                    <div style="display: flex; margin-left: auto; gap: 5px;">
+                        <button id="safelogout" class="btn-more btn-control-xs btn-primary-md" style="font-size: 13px">Safe Logout</button>
+                    </div>
+                </div>
+            </div>
+            <div id="AltsDisplay" style="overflow-y: auto;height: 265px;">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 btr-game-main-container section-content">
+        <div class="remove-panel btr-description">
+            ${descriptionCope.html()}
+        </div>
+    </div>
+    `);
+
+    descriptionCope.remove();
+
     let storagedData = await chrome.storage.local.get()
 
     if (!storagedData.accounts) storagedData.accounts = []

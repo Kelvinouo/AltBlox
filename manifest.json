@@ -2,7 +2,7 @@
   "name": "AltBlox",
   "action": {},
   "manifest_version": 3,
-  "version": "0.45",
+  "version": "0.46",
   "description": "Roblox alt manager",
   "icons": {
     "16": "images/icon16.png",
