@@ -3,7 +3,7 @@
   "action": {},
   "manifest_version": 3,
   "version": "0.45",
-  "description": "One click join with random alt",
+  "description": "Roblox alt manager",
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
